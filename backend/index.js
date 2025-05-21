@@ -9,11 +9,13 @@ const authController = require('./auth/authController');
 const bookController = require('./controllers/bookController');
 const authMiddleware = require('./middlewares/authMiddleware');
 const roleMiddleware = require('./middlewares/roleMiddleware');
+const { default: helmet } = require('helmet');
 
 //Initialize Express app
 const app = express();
 app.use(cors()); // Allows frontend to connect
 app.use(express.json()); // Parses JSON requests
+app.use(helmet());
 
 
 //Connect to mongodb
